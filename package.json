@@ -1,0 +1,15 @@
+{
+  "name": "guhit",
+  "version": "0.1.0",
+  "description": "Guhit.js is a basic 2D graphics library for the web. It is currently under development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Loyd de Troz",
+    "url": "https://loyd.codes"
+  },
+  "type": "module",
+  "license": "ISC"
+}
