@@ -6,7 +6,7 @@ module.exports = function (api) {
     ['@babel/preset-react', {development: true, minify: true}],
   ];
 
-  const plugins = [`@babel/plugin-syntax-dynamic-import`];
+  const plugins = ['@babel/plugin-syntax-dynamic-import'];
 
   return {presets, plugins};
 };

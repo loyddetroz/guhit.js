@@ -1,6 +1,6 @@
 {
   "name": "@loyddetroz/guhit.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Guhit.js is a basic 2D graphics library for the web. It is currently under development.",
   "main": "index.js",
   "scripts": {
