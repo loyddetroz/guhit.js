@@ -1,5 +1,5 @@
 {
-  "name": "guhit",
+  "name": "@loyddetroz/guhit.js",
   "version": "0.1.0",
   "description": "Guhit.js is a basic 2D graphics library for the web. It is currently under development.",
   "main": "index.js",
@@ -32,5 +32,8 @@
     "standard-version": "^9.5.0",
     "ts-jest": "^29.1.2",
     "typescript": "~5.2.0"
+  },
+  "publishConfig": {
+    "@loyddetroz:registry": "https://npm.pkg.github.com"
   }
 }
