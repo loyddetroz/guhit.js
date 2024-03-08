@@ -1,6 +1,8 @@
+import {Shape} from '../../guhit-shapes';
 import {CanvasOptions} from '../common/types';
 
 interface ICanvas {
+  readonly context: CanvasRenderingContext2D;
   readonly element: HTMLCanvasElement;
   readonly window: Window;
   readonly document: Document;
@@ -9,6 +11,7 @@ interface ICanvas {
 }
 
 export class Canvas implements ICanvas {
+  context: CanvasRenderingContext2D;
   element: HTMLCanvasElement;
   window: Window;
   document: Document;
@@ -28,6 +31,7 @@ export class Canvas implements ICanvas {
       this.element = this.createFullScreenCanvas(selector);
     }
 
+    this.context = this.element.getContext('2d')!;
     this.width = this.element.width;
     this.height = this.element.height;
   }
@@ -68,10 +72,15 @@ export class Canvas implements ICanvas {
   private selectCanvas(selector: string): HTMLCanvasElement {
     const canvas = this.document.querySelector(selector);
     const isCanvasTag = canvas?.tagName === 'CANVAS';
+
     if (!canvas) throw new Error('Canvas does not exist!');
     if (!isCanvasTag)
       throw new Error('Specified selector does not refer to a Canvas element!');
 
     return canvas as HTMLCanvasElement;
+  }
+
+  public draw(shape: Shape) {
+    shape.renderToCanvas(this.context);
   }
 }
