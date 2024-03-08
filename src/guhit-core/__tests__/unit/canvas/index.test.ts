@@ -1,18 +1,7 @@
-// eslint-disable-next-line node/no-unpublished-import
-import {JSDOM} from 'jsdom';
 import * as guhit from '../../../canvas';
 // eslint-disable-next-line node/no-unpublished-import
-import {describe, expect, it, beforeEach} from '@jest/globals';
+import {describe, expect, it} from '@jest/globals';
 import {CanvasOptions} from '../../../common/types';
-
-beforeEach(() => {
-  const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
-  global.document = dom.window.document;
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
-  global.window = dom.window;
-});
 
 describe('Canvas Creation', () => {
   it('creates a canvas as the first child of the HTML body', () => {
@@ -21,7 +10,6 @@ describe('Canvas Creation', () => {
     const {
       body: {firstChild},
     } = document;
-
     expect(firstChild?.nodeName).toBe('CANVAS');
   });
 
@@ -36,10 +24,10 @@ describe('Canvas Creation', () => {
   });
 
   it('throws an error if the selected element is not a canvas tag', () => {
-    const domCanvas = document.createElement('div');
-    domCanvas.id = 'test';
-    document.body.appendChild(domCanvas);
-    const options = {selector: '#test'};
+    const div = document.createElement('div');
+    div.id = 'divTest';
+    document.body.appendChild(div);
+    const options = {selector: '#divTest'};
 
     expect(() => new guhit.Canvas(options)).toThrowError();
   });
