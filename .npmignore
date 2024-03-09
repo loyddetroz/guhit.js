@@ -1,0 +1,17 @@
+/src
+/node_modules
+
+.env
+.github
+.DS_STORE
+
+tsconfig.json
+tsup.config.ts
+
+.editorconfig
+.eslintignore
+.eslintrc.json
+.prettierrc.json
+
+babel.config.js
+jest.config.js
