@@ -2,7 +2,9 @@
   "name": "@loyddetroz/guhit.js",
   "version": "0.1.1",
   "description": "Guhit.js is a basic 2D graphics library for the web. It is currently under development.",
-  "main": "index.js",
+  "main": "build/index.js",
+  "module": "build/index.mjs",
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "jest",
     "lint": "gts lint",
@@ -12,13 +14,14 @@
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
-    "release": "standard-version"
+    "release": "standard-version",
+    "build": "tsup"
   },
   "author": {
     "name": "Loyd de Troz",
     "url": "https://loyd.codes"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@jest/globals": "^29.7.0",
@@ -31,9 +34,16 @@
     "jsdom": "^24.0.0",
     "standard-version": "^9.5.0",
     "ts-jest": "^29.1.2",
+    "tsup": "^8.0.2",
     "typescript": "~5.2.0"
   },
   "publishConfig": {
     "@loyddetroz:registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "canvas"
+  ],
+  "repository": {
+    "url": "https://github.com/loyddetroz/guhit.js"
   }
 }

@@ -1,9 +1,18 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "target": "ES6",
+    "moduleResolution": "Node",
+    "declaration": true,
+    "isolatedModules": true,
+    "noEmit": true,
     "rootDir": ".",
     "outDir": "build",
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "include": [
     "src/**/*.ts",
