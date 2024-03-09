@@ -1,52 +1,18 @@
-import {Shape} from '.';
+import {Rectangle} from './rectangle';
+import {ColorOptions, Position} from './types';
 
 export type SquareOptions = {
-  x: number;
-  y: number;
   size: number;
-  isClear?: boolean;
-  isStroke?: boolean;
-  fillStyle?: string;
-  strokeStyle?: string;
-};
+} & Position &
+  ColorOptions;
 
-export class Square implements Shape {
-  x: number;
-  y: number;
-  size: number;
-  isClear?: boolean;
-  isStroke?: boolean;
-  fillStyle?: string;
-  strokeStyle?: string;
-
+export class Square extends Rectangle {
   constructor(options: SquareOptions) {
-    const {x, y, size, isClear, isStroke, fillStyle, strokeStyle} = options;
-
-    this.x = x;
-    this.y = y;
-    this.size = size;
-    this.isClear = isClear;
-    this.isStroke = isStroke;
-    this.fillStyle = fillStyle;
-    this.strokeStyle = strokeStyle;
+    const {x, y, size, fillStyle, strokeStyle} = options;
+    super({x, y, width: size, length: size, fillStyle, strokeStyle});
   }
 
   public renderToCanvas(context: CanvasRenderingContext2D) {
-    const {x, y, size, isClear, isStroke, fillStyle, strokeStyle} = this;
-
-    if (fillStyle) context.fillStyle = fillStyle;
-    if (strokeStyle) context.strokeStyle = strokeStyle;
-
-    if (isClear) {
-      context.clearRect(x, y, size, size);
-      return;
-    }
-
-    if (isStroke) {
-      context.clearRect(x, y, size, size);
-      return;
-    }
-
-    context.fillRect(x, y, size, size);
+    super.renderToCanvas(context);
   }
 }
