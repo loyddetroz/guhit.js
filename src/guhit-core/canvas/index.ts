@@ -1,4 +1,4 @@
-import {Shape} from '../../guhit-shapes';
+import {Shape} from '../../guhit-shapes/interfaces';
 import {CanvasOptions} from '../common/types';
 
 interface ICanvas {
@@ -61,12 +61,7 @@ export class Canvas implements ICanvas {
 
   private createCanvas(selector?: string | null): HTMLCanvasElement {
     if (selector) return this.selectCanvas(selector);
-
-    const {body} = document;
-    const canvas = this.document.createElement('canvas');
-    body.insertBefore(canvas, body.firstChild);
-
-    return canvas;
+    return this.document.createElement('canvas');
   }
 
   private selectCanvas(selector: string): HTMLCanvasElement {

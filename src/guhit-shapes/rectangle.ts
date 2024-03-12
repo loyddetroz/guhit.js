@@ -1,4 +1,4 @@
-import {Shape} from '.';
+import {Shape} from './interfaces';
 import {ColorOptions, Position} from './types';
 
 export type RectangleOptions = {
@@ -29,9 +29,12 @@ export class Rectangle implements Shape {
   renderToCanvas(context: CanvasRenderingContext2D): void {
     const {x, y, width, length, fillStyle, strokeStyle} = this;
 
-    if (fillStyle) context.fillStyle = fillStyle;
-    if (strokeStyle) context.strokeStyle = strokeStyle;
-
-    context.fillRect(x, y, width, length);
+    if (strokeStyle) {
+      context.strokeStyle = strokeStyle;
+      context.strokeRect(x, y, width, length);
+    } else {
+      context.fillStyle = fillStyle ?? 'black';
+      context.fillRect(x, y, width, length);
+    }
   }
 }

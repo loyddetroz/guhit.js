@@ -1,5 +1,3 @@
-export interface Shape {
-  renderToCanvas(context: CanvasRenderingContext2D): void;
-}
-
 export * from './square';
+export * from './rectangle';
+export * from './circle';
